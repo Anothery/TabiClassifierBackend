@@ -1,4 +1,4 @@
-from classifier import classifyImage
+from classifier import classify_image
 from PIL import Image
 from color_processor import get_dominant_colors_palette
 from flask import  Flask, request, jsonify, Response
@@ -35,7 +35,7 @@ def classify():
         else:
             try:
                 pil_image = Image.open(file.stream)
-                return json_response({ 'predictions' : classifyImage(pil_image),
+                return json_response({ 'predictions' : classify_image(pil_image),
                                        'colors': get_dominant_colors_palette(Image.open(file.stream))}, 200)
             except Exception as ex:
                 return json_response(str(ex), 422)

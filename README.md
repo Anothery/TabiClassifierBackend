@@ -26,40 +26,48 @@ Content-Disposition: form-data; name="file"; filename="CvTLFqD2-lw.jpg"
 
 ```
 {
-    "colors": {
-        "beige": {
-            "meanHexColor": "#eef1de",
-            "percentage": 0.05
-        },
-        "black": {
+    "colors": [
+        {
             "meanHexColor": "#090c1b",
+            "name": "black",
             "percentage": 0.2
         },
-        "blue": {
+        {
+            "meanHexColor": "#f7faef",
+            "name": "white",
+            "percentage": 0.15
+        },
+        {
             "meanHexColor": "#3e6376",
+            "name": "blue",
             "percentage": 0.27
         },
-        "cyan": {
-            "meanHexColor": "#ddf7f1",
-            "percentage": 0.01
-        },
-        "gray": {
+        {
             "meanHexColor": "#94a4a1",
+            "name": "gray",
             "percentage": 0.25
         },
-        "green": {
+        {
             "meanHexColor": "#66a19e",
+            "name": "green",
             "percentage": 0.07
         },
-        "violet": {
+        {
             "meanHexColor": "#285a85",
+            "name": "violet",
             "percentage": 0.01
         },
-        "white": {
-            "meanHexColor": "#f7faef",
-            "percentage": 0.15
+        {
+            "meanHexColor": "#eef1de",
+            "name": "beige",
+            "percentage": 0.05
+        },
+        {
+            "meanHexColor": "#ddf7f1",
+            "name": "cyan",
+            "percentage": 0.01
         }
-    },
+    ],
     "predictions": {
         "art": 1.0,
         "frame": 0.0,

@@ -53,7 +53,7 @@ def update_orientation(image):
 
 
 
-def classifyImage(image):
+def classify_image(image):
     graph_def = tf.compat.v1.GraphDef()
     labels = []
 

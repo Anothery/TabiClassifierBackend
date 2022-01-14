@@ -59,6 +59,8 @@ def get_dominant_colors_palette(image):
         else:
             colors_response[color_group] = { 'percentage' : 0 + 1/len(palette), 'colors': [p]}
 
+    colors_final = []
+    
     for group, colordict in colors_response.items():
         # Getting the mean color from colors array
         rgb_mean = [int(np.mean(val)) for val in zip(*colordict['colors'])] 
@@ -67,8 +69,10 @@ def get_dominant_colors_palette(image):
         colordict.pop('colors', None)  
 
         colordict['percentage'] = round(colordict['percentage'], 2)
+        colordict['name'] = group
+        colors_final.append(colordict)
  
-    return  colors_response
+    return colors_final
 
 
 # def get_color_category(r,g,b):
