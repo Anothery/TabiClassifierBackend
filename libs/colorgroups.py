@@ -1,5 +1,4 @@
 
-# map CSS3 color names to the color groups
 ColorGroups = {
     'Black': ['black'],
 
@@ -15,16 +14,16 @@ ColorGroups = {
     'Red': ['crimson', 'darkred', 'darksalmon', 'firebrick', 'orangered', 'tomato'\
           , 'indianred', 'lightcoral', 'lightsalmon', 'red', 'salmon', 'brown', 'maroon'],
 
-    'Yellow': ['gold', 'khaki', 'lemonchiffon', 'lightgoldenrodyellow'\
+    'Yellow': ['khaki','lemonchiffon', 'lightgoldenrodyellow'\
              , 'moccasin', 'palegoldenrod', 'yellow'],
 
-    'Green' : ['chartreuse', 'darkgreen', 'darkolivegreen', 'forestgreen', 'green', 'olive'\
-             , 'greenyellow', 'lawngreen', 'lightgreen', 'lightseagreen', 'lime' \
+    'Green' : ['chartreuse', 'darkgreen', 'darkolivegreen', 'forestgreen', 'green'\
+             , 'greenyellow', 'lawngreen', 'lightgreen', 'lime' \
              , 'limegreen', 'mediumaquamarine', 'mediumseagreen', 'mediumspringgreen'\
-             , 'olivedrab', 'palegreen', 'seagreen', 'teal', 'yellowgreen','darkkhaki', 'springgreen', 'darkseagreen'],
+             , 'olivedrab', 'palegreen', 'seagreen', 'yellowgreen','darkkhaki', 'springgreen', 'darkseagreen'],
 
-    'Cyan': ['aqua', 'aquamarine', 'cyan', 'darkcyan', 'darkturquoise'\
-           , 'lightcyan', 'mediumturquoise', 'paleturquoise', 'turquoise'],
+    'Cyan': ['aqua', 'aquamarine', 'cyan', 'darkcyan', 'darkturquoise','lightseagreen'\
+           , 'lightcyan', 'mediumturquoise', 'paleturquoise', 'turquoise', 'teal'],
 
     'Orange': ['coral', 'darkorange', 'orange'],
 
@@ -40,9 +39,11 @@ ColorGroups = {
     'Beige': ['antiquewhite', 'beige', 'blanchedalmond', 'cornsilk', 'lightyellow'\
             , 'linen', 'papayawhip', 'peachpuff', 'wheat', 'bisque', 'navajowhite', 'tan'],
 
-    'Pink': ['deeppink', 'hotpink', 'lightpink', 'mediumvioletred', 'mistyrose', 'palevioletred', 'pink', 'rosybrown'],
+    'Pink': ['deeppink', 'hotpink', 'lightpink', 'mediumvioletred', 'mistyrose', 'palevioletred', 'pink'],
 
-    'Brown': ['burlywood', 'chocolate', 'darkgoldenrod'\
-            , 'goldenrod', 'peru', 'saddlebrown', 'sandybrown',  'sienna']
+    'Brown': ['burlywood', 'chocolate', 'darkgoldenrod', 'olive'\
+            , 'goldenrod', 'peru', 'saddlebrown', 'sandybrown',  'sienna', 'rosybrown'],
+            
+    'Gold': ['gold']
 }
 

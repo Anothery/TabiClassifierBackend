@@ -4,6 +4,7 @@ from PIL import Image
 import libs.webcolors as webcolors
 import numpy as np
 from libs.colorgroups import ColorGroups
+from math import sqrt
 
 
 def get_color_group(color_name):
@@ -33,47 +34,44 @@ def closest_color(requested_color):
         rd = (r_c - requested_color[0]) ** 2
         gd = (g_c - requested_color[1]) ** 2
         bd = (b_c - requested_color[2]) ** 2
-        min_colors[(rd + gd + bd)] = key
+        min_colors[rd + gd + bd] = key
     return min_colors[min(min_colors.keys())]
-
-def get_closest_web_color_name(requested_colour):
-    try:
-        closest_name = actual_name = webcolors.rgb_to_name(requested_colour)
-    except ValueError:
-        closest_name = closest_color(requested_colour)
-        
-    return closest_name
-
 
 
 def get_dominant_colors_palette(image):
     palette = get_colors(image) 
     colors_response = dict()
     for p in palette:
-        closest_color = get_closest_web_color_name(p)
-        color_group = get_color_group(closest_color).lower()
-        
-        if color_group in colors_response:
-            colors_response[color_group]['percentage'] += 1/len(palette)
-            colors_response[color_group]['colors'].append(p)
-        else:
-            colors_response[color_group] = { 'percentage' : 0 + 1/len(palette), 'colors': [p]}
+        try:
+            closest_color_name = closest_color(p)
+            #closest_color_hex = webcolors.name_to_hex(closest_color_name)
+            color_group = get_color_group(closest_color_name).lower()
+            
+            if color_group in colors_response:
+                colors_response[color_group]['percentage'] += 1/len(palette)
+                colors_response[color_group]['colors'].append(p)
+            else:
+                colors_response[color_group] = { 'percentage' : 0 + 1/len(palette), 'colors': [p]}
+        except Exception:
+           continue
 
     colors_final = []
     
     for group, colordict in colors_response.items():
         # Getting the mean color from colors array
-        rgb_mean = [int(np.mean(val)) for val in zip(*colordict['colors'])] 
+        rgb_mean = np.mean(colordict['colors'], axis=0).astype(int)
         colordict['meanHexColor'] = '#%02x%02x%02x' % (rgb_mean[0],rgb_mean[1], rgb_mean[2])
         # Colors array is useless now so remove it
         colordict.pop('colors', None)  
-
         colordict['percentage'] = round(colordict['percentage'], 2)
         colordict['name'] = group
         colors_final.append(colordict)
  
     return colors_final
 
+
+#def most_common(lst):
+#    return max(set(lst), key=lst.count)
 
 # def get_color_category(r,g,b):
 #     hsv = colorsys.rgb_to_hsv(r/255,g/255,b/255)
