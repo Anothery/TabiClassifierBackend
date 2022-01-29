@@ -4,6 +4,7 @@ from color_processor import get_dominant_colors_palette
 from flask import  Flask, request, jsonify, Response
 
 app = Flask(__name__)
+app.config['MAX_CONTENT_LENGTH'] = 12 * 1024 * 1024
 
 ALLOWED_EXTENSIONS = {'gif', 'png', 'jpg', 'jpeg'}
 
