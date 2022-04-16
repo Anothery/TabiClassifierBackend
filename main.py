@@ -2,6 +2,7 @@ from classifier import classify_image
 from PIL import Image
 from color_processor import get_dominant_colors_palette
 from flask import  Flask, request, jsonify, Response
+import gc
 
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 12 * 1024 * 1024
@@ -22,6 +23,7 @@ def json_response(data, status):
 
 @app.route('/classify', methods=['POST'])
 def classify():
+    gc.collect()
     if 'file' not in request.files:
             return json_response('No file part', 400)
 
@@ -44,6 +46,7 @@ def classify():
 
 @app.route('/')
 def root():
+    gc.collect()
     return jsonify('The world is beautiful')
 
         
